@@ -26,12 +26,23 @@ public class JobApplication {
 
 	private String coverLetter;
 
-	public JobApplication(Job job, LocalDateTime applliedDate, String coverLetter, Freelancer freelancer) {
+	private Freelancer freelancer;
+
+	public JobApplication() {
+		super();
 
 	}
 
-	public JobApplication(Job job, LocalDateTime applliedDate, String coverLetter) {
+	public JobApplication(Job job, LocalDateTime appliedDate, String coverLetter, Freelancer freelancer) {
+		super();
+		this.job = job;
+		this.appliedDate = appliedDate;
+		this.coverLetter = coverLetter;
+		this.freelancer = freelancer;
+	}
 
+	public JobApplication(Job job, String coverLetter, Freelancer freelancer) {
+		
 	}
 
 	public Long getId() {
@@ -64,6 +75,14 @@ public class JobApplication {
 
 	public void setCoverLetter(String coverLetter) {
 		this.coverLetter = coverLetter;
+	}
+
+	public Freelancer getFreelancer() {
+		return freelancer;
+	}
+
+	public void setFreelancer(Freelancer freelancer) {
+		this.freelancer = freelancer;
 	}
 
 	@Override

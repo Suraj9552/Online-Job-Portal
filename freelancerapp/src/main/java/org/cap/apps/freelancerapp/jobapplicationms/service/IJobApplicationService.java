@@ -8,7 +8,9 @@ public interface IJobApplicationService {
 
     JobApplication applyToJob(Job job, String coverLetter, Freelancer freelancer);
 
-    JobApplication updateJobApplication(Job job, String coverLetter, Freelancer freelancer);
+    JobApplication updateJobApplication(Long id,Job job, String coverLetter, Freelancer freelancer);
 
+    void  remove(Job job,Freelancer freelancer);
     
+    JobApplication findById(Long id);
 }
