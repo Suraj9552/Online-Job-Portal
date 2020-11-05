@@ -2,6 +2,7 @@ package org.cap.apps.freelancerapp.adminms.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,11 @@ public class Admin {
 	@Id
 	private Long id;
 
-	private String firstName, lastName, password;
+	@Column(unique = true, nullable = false)
+	private String firstName, lastName; 
+	
+	@Column(nullable = false)
+	private String password;
 
 	public Admin() {
 
