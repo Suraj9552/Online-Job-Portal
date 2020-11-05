@@ -1,25 +1,14 @@
-package org.cap.apps.freelancerapp.jobapplicationms.entities;
+package org.cap.apps.freelancerapp.jobapplicationms.dto;
+
+import java.time.LocalDateTime;
 
 import org.cap.apps.freelancerapp.freelancerms.entities.Freelancer;
 import org.cap.apps.freelancerapp.jobms.entities.Job;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+public class JobApplicationDetails {
 
-import java.time.LocalDateTime;
-import java.util.Objects;
-
-@Entity
-@Table(name = "JobApplication")
-public class JobApplication {
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Id
 	private Long id;
-	@ManyToOne
+
 	private Job job;
 
 	private LocalDateTime appliedDate;
@@ -28,13 +17,14 @@ public class JobApplication {
 
 	private Freelancer freelancer;
 
-	public JobApplication() {
+	public JobApplicationDetails() {
 		super();
 
 	}
 
-	public JobApplication(Job job, LocalDateTime appliedDate, String coverLetter, Freelancer freelancer) {
-		super();
+	public JobApplicationDetails(Long id, Job job, LocalDateTime appliedDate, String coverLetter,
+			Freelancer freelancer) {
+		this.id = id;
 		this.job = job;
 		this.appliedDate = appliedDate;
 		this.coverLetter = coverLetter;
@@ -81,18 +71,4 @@ public class JobApplication {
 		this.freelancer = freelancer;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		JobApplication that = (JobApplication) o;
-		return Objects.equals(id, that.id);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
 }

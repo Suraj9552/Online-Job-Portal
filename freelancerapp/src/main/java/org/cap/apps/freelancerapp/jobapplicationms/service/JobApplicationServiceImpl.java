@@ -59,7 +59,7 @@ public class JobApplicationServiceImpl implements IJobApplicationService {
 	}
 	@Override
 	public JobApplication findById(Long id) {
-		JobApplication jobApplication = new JobApplication();
+		JobApplication jobApplication = findById(id);
 		return jobApplication;
 	}
 
